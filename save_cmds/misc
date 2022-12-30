@@ -1,2 +1,5 @@
-#check if file exists
+# check if file exists
 [ -f "$1" ] || cmd to exec if file doesnt exist (can also use &&)
+
+# check if an mp3 is not empty/short
+ffprobe foo.mp3 2>&1 | grep -A1 Duration:
