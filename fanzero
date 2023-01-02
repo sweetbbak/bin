@@ -10,7 +10,7 @@ cchar() {
     sed -nE 's_.*src="([^"]*)".*class="pi-image-thumbnail".*alt="([^"]*)".*_\1\t\2_p')
   [ $(printf "%s" "$images"|wc -l) -lt 2 ] && kitty +kitten icat $(printf "%s" "$images"|cut -f1) ||
   printf "%s" "$images"|fzf --with-nth 2.. --cycle --preview="kitty +kitten icat --clear --transfer-mode file; \
-    kitty +kitten icat --place "256x17@10x10" --scale-up --transfer-mode file {1}" > /dev/null
+    kitty +kitten icat --place "50x50@0x0" --scale-up --transfer-mode file {1}" > /dev/null
 }
 
 cchar

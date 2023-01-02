@@ -25,17 +25,14 @@ def get_images(soup):
     paragraphs = reader.find_all('p')
     for x in paragraphs:
         img = x.find('img')
-        img = img.get('src')
-        img = img.rstrip()
-        images.append(img)
-        # images.append(img.get('src').rstrip())
-        # print(img.get('src').rstrip())
+        images.append(img.get('src'))
+        print(img.get('src').rstrip())
     return images
     # print(images)
 
 
-def pixcat(images):
-    pixcat.Image(images.fit_screen().show())
+def pixcat():
+    pass
 
 
 def to_csv(res):
@@ -48,7 +45,7 @@ def main():
     html = get_html(url)
     soup = get_images(html)
     to_csv(soup)
-    pixcat(soup)
+    # pixcat(soup)
 
 
 main()

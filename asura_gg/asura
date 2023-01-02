@@ -12,13 +12,14 @@ get_page() {
 }
 
 front_page() {
-  option=$(python ~/bin/asura_gg/pysoup.py | cut -d"+" -f1 | gum filter)
+  option=$(python ~/bin/asura_gg/pysoup.py | gum filter)
   sanitize=$(echo "$option" |tr " " "-" | sed 's/[A-Z]/\L&/g' | sed "s/[#%,.*'@:\$]//g")
   ch=$(gum choose {1..100})
-  chapter=$(printf "https://asura.gg/${sanitize}-chapter-${ch}/")
-  list=$(printf "$chapter" | ~/bin/asura_gg/pygum.py) 
-  
-  pixcat resize -w 1280 -h 640 -W 5120 -H 2560 --align center --relative-x -2 $(cat results.csv|tr "," "\n")
+  chapter=$(printf "%s" "https://asura.gg/${sanitize}-chapter-${ch}/")
+  list=$(printf "%s" "$chapter" | ~/bin/asura_gg/pygum.py) 
+  printf "%s" "$list"
+  # pixcat resize -w 5280 -h 520 -W 5120 -H 5560 --align center --relative-x -2 "$(cat results.csv|tr "," "\n")"
+  # pixcat resize -w 5280 -h 520 -W 5120 -H 5560 --align center --relative-x -2 "$list"
   
 }
 
