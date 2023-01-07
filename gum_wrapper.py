@@ -32,7 +32,7 @@ def input(placeholder: str=None, password: bool=False):
 
 def write(placeholder: str=None):
     if not placeholder:
-        result = os.popen(f"./gum write")
+        result = os.popen(f"gum write")
         return result.read().replace(r"\n", "\n").strip()
     else:
         result = os.popen(f'./gum write --placeholder "{placeholder}"')

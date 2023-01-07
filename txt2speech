@@ -23,12 +23,11 @@ out_file=$2
 
 
 # speed: 0 normal, 1 fast, 2 very fast -- does not seem to work
-# voices: IVONA+Marlene22+(German) or IVONA+Hans22+(German)
 
 # request to process text
 curl --output $tempfile \
     --data "input_text=$(cat $in_file)" \
-    --data "language=German" \
+    --data "language=US+English" \
     --data "voice=IVONA+Amy22+(UK+English)" \
     --data "speed=2" \
     --data "action=process_text" \
